@@ -1,0 +1,247 @@
+esphome:
+  name: esp-ink-display
+  friendly_name: ESP INK Display
+
+esp32:
+  board: firebeetle32
+  # framework:
+  #   type: arduino
+
+# Enable logging
+logger:
+  # level: DEBUG
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "6I/q4fPUxRJYWKT+STG6B0C8fwNdgA9AQNbSGoT/1G0="
+
+ota:
+  - platform: esphome
+    password: "YOURPASSHERE"
+
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  output_power: 8.5dB
+
+
+  manual_ip:
+    # Set this to the IP of the ESP
+    static_ip: 172.16.2.95
+    # Set this to the IP address of the router. Often ends with .1
+    gateway: 172.16.2.1
+    # The subnet of the network. 255.255.255.0 works for most home networks.
+    subnet: 255.255.255.0
+ 
+  use_address: 172.16.2.95
+
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Esp-Ink-Display Fallback Hotspot"
+    password: "YOURPASS"
+
+captive_portal:
+    
+sensor:
+  - platform: adc
+    name: "Device Battery voltage"
+    pin: GPIO34
+    accuracy_decimals: 2
+    update_interval: 60s
+    attenuation: 12dB
+    samples: 10
+    id: device_battery_voltage
+    filters:
+      - multiply: 2.0 
+  # solis/solar sensors
+  - platform: homeassistant
+    entity_id: sensor.solis_remaining_battery_capacity
+    id: house_battery
+  - platform: homeassistant
+    entity_id: sensor.solis_daily_on_grid_energy
+    id: electricity_exported
+  - platform: homeassistant
+    entity_id: sensor.solis_energy_today
+    id: solar_prod_1
+  - platform: homeassistant
+    entity_id: sensor.solis_energy_today_2
+    id: solar_prod_2
+  # octopus sensors
+  - platform: homeassistant
+    entity_id: sensor.octopus_energy_electricity_22l4537754_1012622992710_current_accumulative_consumption
+    id: electricity_imported
+  - platform: homeassistant
+    entity_id: sensor.octopus_energy_electricity_22l4537754_1012622992710_current_accumulative_cost
+    id: electricity_cost
+  - platform: homeassistant
+    entity_id:     sensor.octopus_energy_electricity_22l4537754_1050002377392_export_current_rate
+    id: electricity_export_rate
+  # tesla sensors
+  - platform: homeassistant
+    entity_id: sensor.mr_blue_sky_battery_level
+    id: tesla_battery
+  # andersen charger sensors
+  - platform: homeassistant
+    entity_id: sensor.andersena2lastcharge
+    id: last_car_charge
+  # weather sensors
+  - platform: homeassistant
+    entity_id: weather.willets
+    id: forecast_condition_now
+ 
+
+font:
+  - file: "fonts/Acumin-Pro-Medium.ttf"
+    id: textfont
+    size: 24
+    glyphs: ['&', '@', '!', ',', '.', '"', '%', '(', ')', '+', '-', '_', ':', '°', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','å', 'ä', 'ö', '/','º','µ','³']
+ 
+  - file: "fonts/Acumin-Pro-Medium.ttf"
+    id: tinyfont
+    size: 16
+    glyphs: ['&', '@', '!', ',', '.', '"', '%', '(', ')', '+', '-', '_', ':', '°', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','å', 'ä', 'ö', '/','º','µ','³']
+ 
+  - file: "fonts/materialdesignicons-webfont.ttf"
+    id: iconfont
+    size: 30
+    glyphs: [
+      "\U000F1904", # home-lightning-bolt-outline
+      "\U000F0E1B", # car     
+      "\U000F12A3", # full battery     
+      "\U000F0F9C", # house-import   
+      "\U000F0F9B", # house-export   
+      "\U000F0A72", # solar-power
+      "\U000F151E", # ev-plug-type2
+      "\U000F01AE" # currency-gbp
+      ]
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+    on_time_sync:
+      then:
+        - logger.log: "Synchronized system clock"
+
+# graph:
+#     - id: battery_remaining_graph
+#       sensor: device_battery_voltage
+#       width: 200
+#       height: 100
+#       duration: 1h
+
+spi:
+  id: spiBus0
+  clk_pin: GPIO13
+  mosi_pin: GPIO14 # DIN
+
+display:
+  - platform: waveshare_epaper
+    id:  displayComponent    
+    model: 7.50inv2alt
+
+    #pins
+    busy_pin: 
+      number: GPIO25
+      inverted: true
+    reset_pin: GPIO26
+    cs_pin: GPIO15
+    dc_pin: GPIO4
+    spi_id: spiBus0
+      
+    update_interval: 30s
+    reset_duration: 2ms
+    # rotation: 270
+    lambda: |-
+      int max_x=800;
+      int max_y=480;
+
+
+      // second column
+  
+      int col_indent=410; // left adjust for column start.
+      int row_indent=10; // gap from top.
+      
+      int icon_width=35; // how wide an icon is so we can adjust text to right of it.
+      
+      int text_center=6; // amount to drop text by so it centers next to icon.     
+      
+      int row_height=30; // each rows height.
+
+      int row_count = 0; // var for adding each row
+      int x_loc=0;
+      int y_loc=0;
+
+      // center vertical line
+      it.line(max_x/2,row_indent, max_x/2, max_y-row_indent);
+      
+      
+      // first row
+      x_loc=col_indent;
+
+      
+      y_loc=(row_count*row_height);
+      it.print(x_loc, y_loc, id(iconfont), "\U000F12A3"); //car
+      it.printf(x_loc+icon_width, y_loc+text_center, id(textfont), "House Battery %.0f %%",id(house_battery).state);
+      row_count++;
+
+      y_loc=(row_count*row_height);
+      it.print(x_loc, y_loc, id(iconfont), "\U000F0F9C"); //house import
+      it.printf(x_loc+icon_width, y_loc+text_center,id(textfont), "Electricity Imported %.2f kWh",id(electricity_imported).state);
+      row_count++;
+
+      
+      y_loc=(row_count*row_height);
+      it.print(x_loc, y_loc, id(iconfont), "\U000F0F9B"); //house export
+      it.printf(x_loc+icon_width, y_loc+text_center, id(textfont), "Electricity Exported %.2f kWh",id(electricity_exported).state);
+      row_count++;
+
+      
+      y_loc=(row_count*row_height);
+      it.print(x_loc, y_loc, id(iconfont), "\U000F0A72"); //solar-power
+      it.printf(x_loc+icon_width, y_loc+text_center, id(textfont), "Solar Generated %.2f kWh",id(solar_prod_1).state+id(solar_prod_2).state);
+      row_count++;
+
+       
+
+      // calc the overall cost today
+      y_loc=(row_count*row_height);
+      it.print(x_loc, y_loc, id(iconfont), "\U000F01AE"); // currency pound
+      float electricity_balance=(float)id(electricity_cost).state - (((float)id(electricity_export_rate).state) * ((float)id(electricity_exported).state) );
+      # ESP_LOGD("main", "Export  is: %f", id(electricity_cost).state);
+      # ESP_LOGD("main", "Export Rate : %f", id(electricity_export_rate).state);
+      # ESP_LOGD("main", "Export Amount : %f", id(electricity_exported).state);
+      # ESP_LOGD("main", "Balance: %f", electricity_balance);
+      it.printf(x_loc+icon_width, y_loc+text_center, id(textfont), "Electricity Cost %.2f",electricity_balance); 
+      row_count++;
+      
+      y_loc=(row_count*row_height);
+      it.print(x_loc, y_loc, id(iconfont), "\U000F0E1B"); //car
+      it.printf(x_loc+icon_width, y_loc+text_center, id(textfont), "Tesla Battery %.0f %%",id(tesla_battery).state);
+      row_count++;
+      y_loc=(row_count*row_height);
+      it.print(x_loc, y_loc, id(iconfont), "\U000F151E"); //ev-plug-type2
+      it.printf(x_loc+icon_width, y_loc+text_center, id(textfont), "Last Car Charge %.1f kWh",id(last_car_charge).state);
+      
+      // y_loc=(row_count*row_height);
+      // it.printf(x_loc, y_loc, id(textfont), "Weather %s",id(forecast_condition_now).state);
+      
+        
+      row_count++;
+      row_count++;
+      y_loc=(row_count*row_height);
+      
+      //it.graph(x_loc,y_loc, id(battery_remaining_graph));
+
+      // footer status line
+      y_loc=max_y-row_height;
+      
+      char time_string[30];
+      time_t currTime = id(homeassistant_time).now().timestamp;
+      strftime(time_string, sizeof(time_string), "%Y-%m-%d %H:%M", localtime(&currTime));
+      it.printf(x_loc, y_loc,id(tinyfont), "Last Update %s Charge %.2f V",time_string,id(device_battery_voltage).state);
+
+            
+      // it.print(100, 100, id(textfont),"Hi ya");
