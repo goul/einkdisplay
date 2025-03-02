@@ -44,7 +44,8 @@ wifi:
     password: "YOURPASS"
 
 captive_portal:
-    
+  
+
 sensor:
   - platform: adc
     name: "Device Battery voltage"
@@ -89,11 +90,153 @@ sensor:
     id: last_car_charge
   # weather sensors
   - platform: homeassistant
-    entity_id: weather.willets
+    entity_id: sensor.forecast_temperature_h0
+    id: forecast_temperature_now
+  - platform: homeassistant
+    entity_id: sensor.forecast_precipitation_h0
+    id: forecast_precipitation_now
+  - platform: homeassistant
+    entity_id: sensor.forecast_precipitation_chance_h7
+    id: forecast_precipitation_chance_now
+  - platform: homeassistant
+    entity_id: sensor.forecast_temperature_h1
+    id: forecast_temperature_h1
+  - platform: homeassistant
+    entity_id: sensor.forecast_precipitation_h1
+    id: forecast_precipitation_h1
+  - platform: homeassistant
+    entity_id: sensor.forecast_precipitation_chance_h1
+    id: forecast_precipitation_chance_h1
+  - platform: homeassistant
+    entity_id: sensor.forecast_temperature_h2
+    id: forecast_temperature_h2
+  - platform: homeassistant
+    entity_id: sensor.forecast_precipitation_h2
+    id: forecast_precipitation_h2
+  - platform: homeassistant
+    entity_id: sensor.forecast_precipitation_chance_h2
+    id: forecast_precipitation_chance_h2
+  - platform: homeassistant
+    entity_id: sensor.forecast_temperature_h3
+    id: forecast_temperature_h3
+  - platform: homeassistant
+    entity_id: sensor.forecast_precipitation_h3
+    id: forecast_precipitation_h3
+  - platform: homeassistant
+    entity_id: sensor.forecast_precipitation_chance_h3
+    id: forecast_precipitation_chance_h3
+  - platform: homeassistant
+    entity_id: sensor.forecast_temperature_h4
+    id: forecast_temperature_h4
+  - platform: homeassistant
+    entity_id: sensor.forecast_precipitation_h4
+    id: forecast_precipitation_h4
+  - platform: homeassistant
+    entity_id: sensor.forecast_precipitation_chance_h4
+    id: forecast_precipitation_chance_h4
+  - platform: homeassistant
+    entity_id: sensor.forecast_temperature_h5
+    id: forecast_temperature_h5
+  - platform: homeassistant
+    entity_id: sensor.forecast_precipitation_h5
+    id: forecast_precipitation_h5
+  - platform: homeassistant
+    entity_id: sensor.forecast_precipitation_chance_h5
+    id: forecast_precipitation_chance_h5
+  - platform: homeassistant
+    entity_id: sensor.forecast_temperature_h6
+    id: forecast_temperature_h6
+  - platform: homeassistant
+    entity_id: sensor.forecast_precipitation_h6
+    id: forecast_precipitation_h6
+  - platform: homeassistant
+    entity_id: sensor.forecast_precipitation_chance_h6
+    id: forecast_precipitation_chance_h6
+  - platform: homeassistant
+    entity_id: sensor.forecast_temperature_h7
+    id: forecast_temperature_h7
+  - platform: homeassistant
+    entity_id: sensor.forecast_precipitation_h7
+    id: forecast_precipitation_h7
+  - platform: homeassistant
+    entity_id: sensor.forecast_precipitation_chance_h7
+    id: forecast_precipitation_chance_h7
+  - platform: homeassistant
+    entity_id: sensor.forecast_temperature_h8
+    id: forecast_temperature_h8
+  - platform: homeassistant
+    entity_id: sensor.forecast_precipitation_h8
+    id: forecast_precipitation_h8
+  - platform: homeassistant
+    entity_id: sensor.forecast_precipitation_chance_h8
+    id: forecast_precipitation_chance_h8
+
+    
+
+text_sensor:
+  # weather sensors
+  - platform: homeassistant
+    entity_id: sensor.forecast_condition_h0
     id: forecast_condition_now
+  - platform: homeassistant
+    entity_id: sensor.forecast_hour_h0
+    id: forecast_hour_now
+  - platform: homeassistant
+    entity_id: sensor.forecast_condition_h1
+    id: forecast_condition_h1
+  - platform: homeassistant
+    entity_id: sensor.forecast_hour_h1
+    id: forecast_hour_h1
+  - platform: homeassistant
+    entity_id: sensor.forecast_condition_h2
+    id: forecast_condition_h2
+  - platform: homeassistant
+    entity_id: sensor.forecast_hour_h2
+    id: forecast_hour_h2
+  - platform: homeassistant
+    entity_id: sensor.forecast_condition_h3
+    id: forecast_condition_h3
+  - platform: homeassistant
+    entity_id: sensor.forecast_hour_h3
+    id: forecast_hour_h3
+  - platform: homeassistant
+    entity_id: sensor.forecast_condition_h4
+    id: forecast_condition_h4
+  - platform: homeassistant
+    entity_id: sensor.forecast_hour_h4
+    id: forecast_hour_h4
+  - platform: homeassistant
+    entity_id: sensor.forecast_condition_h5
+    id: forecast_condition_h5
+  - platform: homeassistant
+    entity_id: sensor.forecast_hour_h5
+    id: forecast_hour_h5
+  - platform: homeassistant
+    entity_id: sensor.forecast_condition_h6
+    id: forecast_condition_h6
+  - platform: homeassistant
+    entity_id: sensor.forecast_hour_h6
+    id: forecast_hour_h6
+  - platform: homeassistant
+    entity_id: sensor.forecast_condition_h7
+    id: forecast_condition_h7
+  - platform: homeassistant
+    entity_id: sensor.forecast_hour_h7
+    id: forecast_hour_h7
+  - platform: homeassistant
+    entity_id: sensor.forecast_condition_h8
+    id: forecast_condition_h8
+  - platform: homeassistant
+    entity_id: sensor.forecast_hour_h8
+    id: forecast_hour_h8
  
 
 font:
+  - file: "fonts/Acumin-Pro-Medium.ttf"
+    id: massivefont
+    size: 72
+    glyphs: ['&', '@', '!', ',', '.', '"', '%', '(', ')', '+', '-', '_', ':', '°', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','å', 'ä', 'ö', '/','º','µ','³']
+ 
   - file: "fonts/Acumin-Pro-Medium.ttf"
     id: textfont
     size: 24
@@ -115,8 +258,79 @@ font:
       "\U000F0F9B", # house-export   
       "\U000F0A72", # solar-power
       "\U000F151E", # ev-plug-type2
-      "\U000F01AE" # currency-gbp
+      "\U000F01AE",  # currency-gbp
+      "\U000F058C" # water drop
       ]
+  - file: 'fonts/materialdesignicons-webfont.ttf'
+    id: font_mdi_large
+    size: 128
+    glyphs: &mdi-glyphs
+      - "\U000F0590" # mdi-weather-cloudy
+      - "\U000F0F2F" # mdi-weather-cloudy-alert
+      - "\U000F0E6E" # mdi-weather-cloudy-arrow-right
+      - "\U000F0591" # mdi-weather-fog
+      - "\U000F0592" # mdi-weather-hail
+      - "\U000F0F30" # mdi-weather-hazy
+      - "\U000F0898" # mdi-weather-hurricane
+      - "\U000F0593" # mdi-weather-lightning
+      - "\U000F067E" # mdi-weather-lightning-rainy
+      - "\U000F0594" # mdi-weather-night
+      - "\U000F0F31" # mdi-weather-night-partly-cloudy
+      - "\U000F0595" # mdi-weather-partly-cloudy
+      - "\U000F0F32" # mdi-weather-partly-lightning
+      - "\U000F0F33" # mdi-weather-partly-rainy
+      - "\U000F0F34" # mdi-weather-partly-snowy
+      - "\U000F0F35" # mdi-weather-partly-snowy-rainy
+      - "\U000F0596" # mdi-weather-pouring
+      - "\U000F0597" # mdi-weather-rainy
+      - "\U000F0598" # mdi-weather-snowy
+      - "\U000F0F36" # mdi-weather-snowy-heavy
+      - "\U000F067F" # mdi-weather-snowy-rainy
+      - "\U000F0599" # mdi-weather-sunny
+      - "\U000F0F37" # mdi-weather-sunny-alert
+      - "\U000F14E4" # mdi-weather-sunny-off
+      - "\U000F059A" # mdi-weather-sunset
+      - "\U000F059B" # mdi-weather-sunset-down
+      - "\U000F059C" # mdi-weather-sunset-up
+      - "\U000F0F38" # mdi-weather-tornado
+      - "\U000F059D" # mdi-weather-windy
+      - "\U000F059E" # mdi-weather-windy-variant
+
+  - file: 'fonts/materialdesignicons-webfont.ttf'
+    id: font_mdi_medium
+    size: 85
+    glyphs: &mdi-glyphs2
+      - "\U000F0590" # mdi-weather-cloudy
+      - "\U000F0F2F" # mdi-weather-cloudy-alert
+      - "\U000F0E6E" # mdi-weather-cloudy-arrow-right
+      - "\U000F0591" # mdi-weather-fog
+      - "\U000F0592" # mdi-weather-hail
+      - "\U000F0F30" # mdi-weather-hazy
+      - "\U000F0898" # mdi-weather-hurricane
+      - "\U000F0593" # mdi-weather-lightning
+      - "\U000F067E" # mdi-weather-lightning-rainy
+      - "\U000F0594" # mdi-weather-night
+      - "\U000F0F31" # mdi-weather-night-partly-cloudy
+      - "\U000F0595" # mdi-weather-partly-cloudy
+      - "\U000F0F32" # mdi-weather-partly-lightning
+      - "\U000F0F33" # mdi-weather-partly-rainy
+      - "\U000F0F34" # mdi-weather-partly-snowy
+      - "\U000F0F35" # mdi-weather-partly-snowy-rainy
+      - "\U000F0596" # mdi-weather-pouring
+      - "\U000F0597" # mdi-weather-rainy
+      - "\U000F0598" # mdi-weather-snowy
+      - "\U000F0F36" # mdi-weather-snowy-heavy
+      - "\U000F067F" # mdi-weather-snowy-rainy
+      - "\U000F0599" # mdi-weather-sunny
+      - "\U000F0F37" # mdi-weather-sunny-alert
+      - "\U000F14E4" # mdi-weather-sunny-off
+      - "\U000F059A" # mdi-weather-sunset
+      - "\U000F059B" # mdi-weather-sunset-down
+      - "\U000F059C" # mdi-weather-sunset-up
+      - "\U000F0F38" # mdi-weather-tornado
+      - "\U000F059D" # mdi-weather-windy
+      - "\U000F059E" # mdi-weather-windy-variant
+
 
 time:
   - platform: homeassistant
@@ -137,6 +351,7 @@ spi:
   clk_pin: GPIO13
   mosi_pin: GPIO14 # DIN
 
+
 display:
   - platform: waveshare_epaper
     id:  displayComponent    
@@ -151,57 +366,179 @@ display:
     dc_pin: GPIO4
     spi_id: spiBus0
       
-    update_interval: 30s
+    update_interval: 5min
     reset_duration: 2ms
     # rotation: 270
+
     lambda: |-
       int max_x=800;
       int max_y=480;
 
-
-      // second column
-  
-      int col_indent=410; // left adjust for column start.
+      int col_indent=10; // left adjust for column start.
       int row_indent=10; // gap from top.
-      
-      int icon_width=35; // how wide an icon is so we can adjust text to right of it.
-      
-      int text_center=6; // amount to drop text by so it centers next to icon.     
-      
-      int row_height=30; // each rows height.
-
       int row_count = 0; // var for adding each row
       int x_loc=0;
       int y_loc=0;
+      int row_height=30; // each rows height.
 
+      int small_icon_width=35; // how wide an icon is so we can adjust text to right of it.
+      int medium_icon_width=85; // how wide an icon is so we can adjust text to right of it.
+      int text_center=6; // amount to drop text by so it centers next to icon.     
+
+
+      // weather column
+      int large_icon_size=128;
+      int massive_font_size=72;
+
+      
+      x_loc=col_indent;
+      // get main icon
+      std::basic_string<char> icon=get_weather_icon(id(forecast_condition_now).state);
+      // ESP_LOGD("main", "Icon is %s",icon.c_str());
+      y_loc=(row_count*row_height);
+      it.print(x_loc, y_loc, id(font_mdi_large), icon.c_str());
+      
+      y_loc=y_loc-10+large_icon_size/4;
+      // large temp to right of icon
+      it.printf(x_loc+large_icon_size, y_loc, id(massivefont), "%.1f°C",id(forecast_temperature_now).state);
+      // chance/amount of rain
+      it.print(x_loc+large_icon_size, y_loc+72, id(iconfont), "\U000F058C"); // water drop
+
+      it.printf(x_loc+large_icon_size+small_icon_width, y_loc+72+text_center, id(textfont), "%.0f%% %.2fmm",id(forecast_precipitation_chance_now).state,id(forecast_precipitation_now).state);
+
+
+      // small text description of weather underneath
+      //y_loc = y_loc+large_icon_size;
+      //it.printf(x_loc, y_loc, id(tinyfont), "%s", (id(forecast_condition_now).state).c_str() );
+      //it.printf(x_loc, y_loc+10, id(tinyfont), "%s", (id(forecast_hour_now).state).c_str() );
+
+
+      // std::string val = id(forecast_condition_now).state;
+
+      // ESP_LOGD("main", "Condition : %s", val.c_str() );
+
+      // y_loc=(row_count*row_height);
+      // it.printf(x_loc, y_loc, id(textfont), "Current weather is %s",val.c_str() );
+      // row_count++;
+
+      //std::basic_string<char> icon=get_weather_icon(id(forecast_condition_now).state);
+      //ESP_LOGD("main", "Icon is %s",icon.c_str());
+      //y_loc=(row_count*row_height);
+      //it.print(x_loc, y_loc, id(font_mdi_large), icon.c_str());
+      
+
+      // hourly first row
+      x_loc=col_indent;
+      y_loc = y_loc+large_icon_size;
+      it.printf(x_loc+(medium_icon_width/5), y_loc, id(textfont), "%s", (id(forecast_hour_h1).state).c_str() );
+      icon=get_weather_icon(id(forecast_condition_h1).state);
+      it.print(x_loc, y_loc+row_height-15, id(font_mdi_medium), icon.c_str());
+      it.printf(x_loc+(medium_icon_width/5), y_loc+medium_icon_width+10, id(textfont), "%.1f°C",id(forecast_temperature_h1).state);
+      it.printf(x_loc+(medium_icon_width/5), y_loc+medium_icon_width+30, id(tinyfont), "%.2fmm",id(forecast_precipitation_h1).state);
+      
+      x_loc=x_loc+medium_icon_width+10;
+      it.printf(x_loc+(medium_icon_width/5), y_loc, id(textfont), "%s", (id(forecast_hour_h2).state).c_str() );
+      icon=get_weather_icon(id(forecast_condition_h2).state);
+      it.print(x_loc, y_loc+row_height-15, id(font_mdi_medium), icon.c_str());
+      it.printf(x_loc+(medium_icon_width/5), y_loc+medium_icon_width+10, id(textfont), "%.1f°C",id(forecast_temperature_h2).state);
+      it.printf(x_loc+(medium_icon_width/5), y_loc+medium_icon_width+30, id(tinyfont), "%.2fmm",id(forecast_precipitation_h2).state);
+      
+      x_loc=x_loc+medium_icon_width+10;
+      it.printf(x_loc+(medium_icon_width/5), y_loc, id(textfont), "%s", (id(forecast_hour_h3).state).c_str() );
+      icon=get_weather_icon(id(forecast_condition_h3).state);
+      it.print(x_loc, y_loc+row_height-15, id(font_mdi_medium), icon.c_str());
+      it.printf(x_loc+(medium_icon_width/5), y_loc+medium_icon_width+10, id(textfont), "%.1f°C",id(forecast_temperature_h3).state);
+      it.printf(x_loc+(medium_icon_width/5), y_loc+medium_icon_width+30, id(tinyfont), "%.2fmm",id(forecast_precipitation_h3).state);
+
+
+      x_loc=x_loc+medium_icon_width+10;
+      it.printf(x_loc+(medium_icon_width/5), y_loc, id(textfont), "%s", (id(forecast_hour_h4).state).c_str() );
+      icon=get_weather_icon(id(forecast_condition_h4).state);
+      it.print(x_loc, y_loc+row_height-15, id(font_mdi_medium), icon.c_str());
+      it.printf(x_loc+(medium_icon_width/5), y_loc+medium_icon_width+10, id(textfont), "%.1f°C",id(forecast_temperature_h4).state);
+      it.printf(x_loc+(medium_icon_width/5), y_loc+medium_icon_width+30, id(tinyfont), "%.2fmm",id(forecast_precipitation_h4).state);
+
+
+      // hourly second row
+      x_loc=col_indent;
+      y_loc = y_loc+medium_icon_width+70;
+      it.printf(x_loc+(medium_icon_width/5), y_loc, id(textfont), "%s", (id(forecast_hour_h5).state).c_str() );
+      icon=get_weather_icon(id(forecast_condition_h5).state);
+      it.print(x_loc, y_loc+row_height-15, id(font_mdi_medium), icon.c_str());
+      it.printf(x_loc+(medium_icon_width/5), y_loc+medium_icon_width+10, id(textfont), "%.1f°C",id(forecast_temperature_h5).state);
+      it.printf(x_loc+(medium_icon_width/5), y_loc+medium_icon_width+30, id(tinyfont), "%.2fmm",id(forecast_precipitation_h5).state);
+      
+      x_loc=x_loc+medium_icon_width+10;
+      it.printf(x_loc+(medium_icon_width/5), y_loc, id(textfont), "%s", (id(forecast_hour_h6).state).c_str() );
+      icon=get_weather_icon(id(forecast_condition_h6).state);
+      it.print(x_loc, y_loc+row_height-15, id(font_mdi_medium), icon.c_str());
+      it.printf(x_loc+(medium_icon_width/5), y_loc+medium_icon_width+10, id(textfont), "%.1f°C",id(forecast_temperature_h6).state);
+      it.printf(x_loc+(medium_icon_width/5), y_loc+medium_icon_width+30, id(tinyfont), "%.2fmm",id(forecast_precipitation_h6).state);
+      
+      x_loc=x_loc+medium_icon_width+10;
+      it.printf(x_loc+(medium_icon_width/5), y_loc, id(textfont), "%s", (id(forecast_hour_h7).state).c_str() );
+      icon=get_weather_icon(id(forecast_condition_h7).state);
+      it.print(x_loc, y_loc+row_height-15, id(font_mdi_medium), icon.c_str());
+      it.printf(x_loc+(medium_icon_width/5), y_loc+medium_icon_width+10, id(textfont), "%.1f°C",id(forecast_temperature_h7).state);
+      it.printf(x_loc+(medium_icon_width/5), y_loc+medium_icon_width+30, id(tinyfont), "%.2fmm",id(forecast_precipitation_h7).state);
+
+
+      x_loc=x_loc+medium_icon_width+10;
+      it.printf(x_loc+(medium_icon_width/5), y_loc, id(textfont), "%s", (id(forecast_hour_h8).state).c_str() );
+      icon=get_weather_icon(id(forecast_condition_h8).state);
+      it.print(x_loc, y_loc+row_height-15, id(font_mdi_medium), icon.c_str());
+      it.printf(x_loc+(medium_icon_width/5), y_loc+medium_icon_width+10, id(textfont), "%.1f°C",id(forecast_temperature_h8).state);
+      it.printf(x_loc+(medium_icon_width/5), y_loc+medium_icon_width+30, id(tinyfont), "%.2fmm",id(forecast_precipitation_h8).state);
+
+      //
       // center vertical line
+      //
       it.line(max_x/2,row_indent, max_x/2, max_y-row_indent);
       
+      
+      //
+      // second column
+      //
+
+      // reset these basic display settings.
+      col_indent=410; // left adjust for column start.
+      row_indent=10; // gap from top.
+      row_count = 0; // var for adding each row
+      x_loc=0;
+      y_loc=0;
+      row_height=30; // each rows height.
+
+
+      
+      
+
+
+      
+
       
       // first row
       x_loc=col_indent;
 
-      
       y_loc=(row_count*row_height);
       it.print(x_loc, y_loc, id(iconfont), "\U000F12A3"); //car
-      it.printf(x_loc+icon_width, y_loc+text_center, id(textfont), "House Battery %.0f %%",id(house_battery).state);
+      it.printf(x_loc+small_icon_width, y_loc+text_center, id(textfont), "House Battery %.0f %%",id(house_battery).state);
       row_count++;
 
       y_loc=(row_count*row_height);
       it.print(x_loc, y_loc, id(iconfont), "\U000F0F9C"); //house import
-      it.printf(x_loc+icon_width, y_loc+text_center,id(textfont), "Electricity Imported %.2f kWh",id(electricity_imported).state);
+      it.printf(x_loc+small_icon_width, y_loc+text_center,id(textfont), "Electricity Imported %.2f kWh",id(electricity_imported).state);
       row_count++;
 
       
       y_loc=(row_count*row_height);
       it.print(x_loc, y_loc, id(iconfont), "\U000F0F9B"); //house export
-      it.printf(x_loc+icon_width, y_loc+text_center, id(textfont), "Electricity Exported %.2f kWh",id(electricity_exported).state);
+      it.printf(x_loc+small_icon_width, y_loc+text_center, id(textfont), "Electricity Exported %.2f kWh",id(electricity_exported).state);
       row_count++;
 
       
       y_loc=(row_count*row_height);
       it.print(x_loc, y_loc, id(iconfont), "\U000F0A72"); //solar-power
-      it.printf(x_loc+icon_width, y_loc+text_center, id(textfont), "Solar Generated %.2f kWh",id(solar_prod_1).state+id(solar_prod_2).state);
+      it.printf(x_loc+small_icon_width, y_loc+text_center, id(textfont), "Solar Generated %.2f kWh",id(solar_prod_1).state+id(solar_prod_2).state);
       row_count++;
 
        
@@ -210,20 +547,20 @@ display:
       y_loc=(row_count*row_height);
       it.print(x_loc, y_loc, id(iconfont), "\U000F01AE"); // currency pound
       float electricity_balance=(float)id(electricity_cost).state - (((float)id(electricity_export_rate).state) * ((float)id(electricity_exported).state) );
-      # ESP_LOGD("main", "Export  is: %f", id(electricity_cost).state);
-      # ESP_LOGD("main", "Export Rate : %f", id(electricity_export_rate).state);
-      # ESP_LOGD("main", "Export Amount : %f", id(electricity_exported).state);
-      # ESP_LOGD("main", "Balance: %f", electricity_balance);
-      it.printf(x_loc+icon_width, y_loc+text_center, id(textfont), "Electricity Cost %.2f",electricity_balance); 
+      /* ESP_LOGD("main", "Export  is: %f", id(electricity_cost).state);
+      ESP_LOGD("main", "Export Rate : %f", id(electricity_export_rate).state);
+      ESP_LOGD("main", "Export Amount : %f", id(electricity_exported).state);
+      ESP_LOGD("main", "Balance: %f", electricity_balance); */
+      it.printf(x_loc+small_icon_width, y_loc+text_center, id(textfont), "Electricity Cost %.2f",electricity_balance); 
       row_count++;
       
       y_loc=(row_count*row_height);
       it.print(x_loc, y_loc, id(iconfont), "\U000F0E1B"); //car
-      it.printf(x_loc+icon_width, y_loc+text_center, id(textfont), "Tesla Battery %.0f %%",id(tesla_battery).state);
+      it.printf(x_loc+small_icon_width, y_loc+text_center, id(textfont), "Tesla Battery %.0f %%",id(tesla_battery).state);
       row_count++;
       y_loc=(row_count*row_height);
       it.print(x_loc, y_loc, id(iconfont), "\U000F151E"); //ev-plug-type2
-      it.printf(x_loc+icon_width, y_loc+text_center, id(textfont), "Last Car Charge %.1f kWh",id(last_car_charge).state);
+      it.printf(x_loc+small_icon_width, y_loc+text_center, id(textfont), "Last Car Charge %.1f kWh",id(last_car_charge).state);
       
       // y_loc=(row_count*row_height);
       // it.printf(x_loc, y_loc, id(textfont), "Weather %s",id(forecast_condition_now).state);
@@ -242,6 +579,4 @@ display:
       time_t currTime = id(homeassistant_time).now().timestamp;
       strftime(time_string, sizeof(time_string), "%Y-%m-%d %H:%M", localtime(&currTime));
       it.printf(x_loc, y_loc,id(tinyfont), "Last Update %s Charge %.2f V",time_string,id(device_battery_voltage).state);
-
-            
-      // it.print(100, 100, id(textfont),"Hi ya");
+ 
